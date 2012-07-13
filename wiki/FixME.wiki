@@ -6,13 +6,11 @@
         if (!empty($_POST['text']))           { $text       = '"'.$this->sql_escape(strip_tags($_POST['text'])).'"'; }
         $username = $_SESSION['userarray']['username'];
         $userlevel = $_SESSION['userarray']['userlevel'];
-        $ip = $_SERVER['REMOTE_ADDR'];
         $query = 'INSERT into shouts SET
                         date      = NOW(),
                         subject   = '.$subject.',
                         text      = '.$text.',
                         user      = '.$username.',
-                        ip        = '.$ip.',
                         userlevel = '.$userlevel.',
                         userid    = '.$_SESSION['authenticateduser'].'';
                         
