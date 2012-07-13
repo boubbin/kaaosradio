@@ -4,14 +4,14 @@
         if (!empty($_POST['send']))           { $send       = '"'.$this->sql_escape(strip_tags($_POST['send'])).'"'; }
         if (!empty($_POST['subject']))        { $subject    = '"'.$this->sql_escape(strip_tags($_POST['subject'])).'"'; }
         if (!empty($_POST['text']))           { $text       = '"'.$this->sql_escape(strip_tags($_POST['text'])).'"'; }
-        $user = $_SESSION['userarray']['username'];
-        $isdj = $_SESSION['userarray']['userlevel'];
+        $username = $_SESSION['userarray']['username'];
+        $userlevel = $_SESSION['userarray']['userlevel'];
         $ip = $_SERVER['REMOTE_ADDR'];
         $query = 'INSERT into shouts SET
                         date      = NOW(),
                         subject   = '.$subject.',
                         text      = '.$text.',
-                        user      = '.$user.',
+                        user      = '.$username.',
                         ip        = '.$ip.',
                         userlevel = '.$userlevel.',
                         userid    = '.$_SESSION['authenticateduser'].'';
@@ -27,7 +27,7 @@
 ^__________________________
 
 $error = "this insert fails";
-echo "$error but echo $user and $userlevel works fine.";
+echo "$error but echo $username and $userlevel works fine.";
 if remove the username and userlevel from insert { then it's ok }
 
 data is stored in array inside session
