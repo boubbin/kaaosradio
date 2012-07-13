@@ -30,7 +30,10 @@ $error = "this insert fails";
 echo "$error but echo $user and $userlevel works fine.";
 if remove the username and userlevel from insert { then it's ok }
 
+data is stored in array inside session
+<code language="php">
 print_r($_SESSION);
 -> Array ( [userarray] => Array ( [username] => John [userlevel] => 10 ) )
+</code>
 
-please fix this
+please fix this :)
