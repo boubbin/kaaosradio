@@ -28,8 +28,9 @@
 
 $error = "this insert fails";
 echo "$error but echo $user and $userlevel works fine.";
-if remove the user and userlevel from insert { then it's ok }
+if remove the username and userlevel from insert { then it's ok }
 
-
+print_r($_SESSION);
+-> Array ( [userarray] => Array ( [username] => John [userlevel] => 10 ) )
 
 please fix this
