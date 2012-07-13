@@ -26,7 +26,7 @@
 
 $error = "this insert fails";
 echo "$error but echo $username and $userlevel works fine.";
-if remove the username and userlevel from insert { then it's ok }
+if remove the user and userlevel from insert { then it's ok }
 
 data is stored in array inside session
 <code language="php">
