@@ -1,26 +1,34 @@
 #labels learn
 <code language="php">
-        $user = $_SESSION['userdata']['username'];
-        $isdj = $_SESSION['userdata']['isdj'];
+    if(isset($_POST['send'])) {
+        if (!empty($_POST['send']))           { $send       = '"'.$this->sql_escape(strip_tags($_POST['send'])).'"'; }
+        if (!empty($_POST['subject']))        { $subject    = '"'.$this->sql_escape(strip_tags($_POST['subject'])).'"'; }
+        if (!empty($_POST['text']))           { $text       = '"'.$this->sql_escape(strip_tags($_POST['text'])).'"'; }
+        $user = $_SESSION['userarray']['username'];
+        $isdj = $_SESSION['userarray']['userlevel'];
         $ip = $_SERVER['REMOTE_ADDR'];
-
         $query = 'INSERT into shouts SET
-        date      = NOW(),
-        subject   = '.$subject.',
-        text      = '.$text.',
-        user      = '.$user.',
-        ip        = '.$ip.',
-        isdj      = '.$isdj.',
-        userid    = '.$_SESSION['authenticated_user_id'].'';
-
-    $this->query($query);
+                        date      = NOW(),
+                        subject   = '.$subject.',
+                        text      = '.$text.',
+                        user      = '.$user.',
+                        ip        = '.$ip.',
+                        userlevel = '.$isdj.',
+                        userid    = '.$_SESSION['authenticated_user_id'].'';
+                        
+                        
+                        
+        $this->query($query);
+        echo '<p>Insert OK<p>';
+        $this->printshouts();
+        }
 </code>
 
 ^__________________________
 
 $error = "this insert fails";
-echo "$error but echo $user and $isdj works fine.";
-if remove the user and isdj from insert { then it's ok }
+echo "$error but echo $user and $userlevel works fine.";
+if remove the user and userlevel from insert { then it's ok }
 
 
 
