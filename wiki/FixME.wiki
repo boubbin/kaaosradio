@@ -1,18 +1,20 @@
 #labels learn
+<code language="php">
         $user = $_SESSION['userdata']['username'];
         $isdj = $_SESSION['userdata']['isdj'];
         $ip = $_SERVER['REMOTE_ADDR'];
-        $query = 'INSERT into shouts SET
 
-    date      = NOW(),
-    subject   = '.$subject.',
-    text      = '.$text.',
-    user      = '.$user.',
-    ip        = '.$ip.',
-    isdj      = '.$isdj.',
-    userid    = '.$_SESSION['authenticated_user_id'].'';
+        $query = 'INSERT into shouts SET
+        date      = NOW(),
+        subject   = '.$subject.',
+        text      = '.$text.',
+        user      = '.$user.',
+        ip        = '.$ip.',
+        isdj      = '.$isdj.',
+        userid    = '.$_SESSION['authenticated_user_id'].'';
 
     $this->query($query);
+</code>
 
 ^__________________________
 
@@ -23,4 +25,3 @@ if remove the user and isdj from insert { then it's ok }
 
 
 please fix this
-
