@@ -13,8 +13,8 @@
                         text      = '.$text.',
                         user      = '.$user.',
                         ip        = '.$ip.',
-                        userlevel = '.$isdj.',
-                        userid    = '.$_SESSION['authenticated_user_id'].'';
+                        userlevel = '.$userlevel.',
+                        userid    = '.$_SESSION['authenticateduser'].'';
                         
                         
                         
