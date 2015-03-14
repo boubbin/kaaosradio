@@ -1,0 +1,13 @@
+```php
+
+if(isset($_SESSION['authenticated_user_id'])) {
+if ($_SESSION['userdata']['userlevel'] >= 1) {
+$this->printshouts();
+$this->printshoutbox();
+}
+else {
+$this->printshouts();
+}
+}
+else { $this->printshouts(); }
+}```

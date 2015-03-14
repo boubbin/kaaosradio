@@ -1,0 +1,38 @@
+```php
+
+if(isset($_POST['send'])) {
+if (!empty($_POST['send']))           { $send       = '"'.$this->sql_escape(strip_tags($_POST['send'])).'"'; }
+if (!empty($_POST['subject']))        { $subject    = '"'.$this->sql_escape(strip_tags($_POST['subject'])).'"'; }
+if (!empty($_POST['text']))           { $text       = '"'.$this->sql_escape(strip_tags($_POST['text'])).'"'; }
+$username = $_SESSION['userarray']['username'];
+$userlevel = $_SESSION['userarray']['userlevel'];
+$query = 'INSERT into shouts SET
+date      = NOW(),
+subject   = '.$subject.',
+text      = '.$text.',
+user      = '.$username.',
+userlevel = '.$userlevel.',
+userid    = '.$_SESSION['authenticateduser'].'';
+
+
+
+$this->query($query);
+echo '<p>Insert OK<p>';
+$this->printshouts();
+}
+```
+
+^
+
+$error = "this insert fails";
+echo "$error but echo $username and $userlevel works fine.";
+if remove the user and userlevel from insert { then it's ok }
+
+data is stored in array inside session
+```php
+
+print_r($_SESSION);
+-> Array ( [userarray] => Array ( [username] => John [userlevel] => 10 ) )
+```
+
+please fix this :)
